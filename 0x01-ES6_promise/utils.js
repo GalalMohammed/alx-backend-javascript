@@ -7,7 +7,6 @@ export function uploadPhoto() {
   
   
   
-  Explain
   export function createUser() {
     return Promise.resolve({
       firstName: 'Guillaume',
