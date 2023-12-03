@@ -5,23 +5,23 @@ export default class HolbertonCourse {
     this._students = this.validateArrayOfStrings(students, 'Students');
   }
 
-  validateString(value, propertyName) {
+  static validateString(value, propertyName) {
     if (typeof value !== 'string') {
       throw new TypeError(`${propertyName} must be a string`);
     }
     return value;
   }
 
-  validateNumber(value, propertyName) {
+  static validateNumber(value, propertyName) {
     if (typeof value !== 'number') {
       throw new TypeError(`${propertyName} must be a number`);
     }
     return value;
   }
 
-  validateArrayOfStrings(value, propertyName) {
-    if (!Array.isArray(value) || !value.every(item => typeof item === 'string')) {
-      throw new TypeError(`${propertyName} must be an array of strings`)
+  static validateArrayOfStrings(value, propertyName) {
+    if (!Array.isArray(value) || !value.every((item) => typeof item === 'string')) {
+      throw new TypeError(`${propertyName} must be an array of strings`);
     }
     return value;
   }
@@ -39,7 +39,7 @@ export default class HolbertonCourse {
   }
 
   set length(newLength) {
-    this._name = this.validateNumber(newLength, 'Length');
+    this._length = this.validateNumber(newLength, 'Length');
   }
 
   get students() {
@@ -47,6 +47,6 @@ export default class HolbertonCourse {
   }
 
   set students(newStudents) {
-    this._name = this.validateArrayOfStrings(newStudents, 'Students');
+    this._students = this.validateArrayOfStrings(newStudents, 'Students');
   }
 }
