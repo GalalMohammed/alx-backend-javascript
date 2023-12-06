@@ -1,7 +1,7 @@
 export default function cleanSet(set, startString) {
   if (startString && typeof startString === 'string') {
     let result = '';
-    Array.from(set).filter((item) => item.startsWith(startString)).forEach((item) => {
+    Array.from(set).filter((item) => typeof item === 'string' && item.startsWith(startString)).forEach((item) => {
       if (result) {
         result += '-';
       }
