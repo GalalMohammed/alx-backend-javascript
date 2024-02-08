@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 
-countStudents = (path) => new Promise((resolve, reject) => {
+const countStudents = (path) => new Promise((resolve, reject) => {
   try {
     const data = fs.readFileSync(path, 'utf-8');
 
