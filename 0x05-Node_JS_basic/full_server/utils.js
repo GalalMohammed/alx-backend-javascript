@@ -1,4 +1,3 @@
-import exp from 'constants';
 import fs from 'fs';
 
 const readDatabase = (path) => new Promise((resolve, reject) => {
