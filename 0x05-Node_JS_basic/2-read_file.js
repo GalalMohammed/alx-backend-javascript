@@ -11,7 +11,8 @@ module.exports = (path) => {
     lines.shift();
     lines.forEach((line) => {
       if (line.trim() !== '') {
-        const [firstName, _lastName, _age, field] = line.split(',');
+        const firstName = line.split(',').shift();
+        const field = line.split(',').pop();
         students.push({ firstName, field });
       }
     });
