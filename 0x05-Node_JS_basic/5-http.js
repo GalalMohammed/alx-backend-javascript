@@ -40,7 +40,7 @@ const countStudents = (path) => new Promise((resolve, reject) => {
   } catch (error) {
     console.log(error);
     // Reject th e promise with an error if the database is not available
-    reject('Cannot load the database');
+    reject(new Error('Cannot load the database'));
   }
 });
 
@@ -58,7 +58,8 @@ const server = http.createServer((req, res) => {
     countStudents(process.argv[2]).then((students) => {
       res.end(`This is the list of our students\n${students}`);
     }).catch((error) => {
-      res.end(`This is the list of our students\n${error}`);
+      // Handle errors related to reading the database file
+      res.end(`This is the list of our students\n${error.message}`);
     });
   }
 });
