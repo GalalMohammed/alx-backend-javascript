@@ -40,7 +40,7 @@ countStudents = (path) => new Promise((resolve, reject) => {
   } catch (error) {
     console.log(error);
     // Reject th e promise with an error if the database is not available
-    reject(new Error('Cannot load the database'));
+    reject('Cannot load the database');
   }
 });
 
@@ -56,7 +56,9 @@ const server = http.createServer((req, res) => {
   } else if (req.url === '/students') {
     // Display the list of students
     countStudents(process.argv[2]).then((students) => {
-      res.end(`This is the list of our students\n${students}`)
+      res.end(`This is the list of our students\n${students}`);
+    }).catch((error) => {
+      res.end(`This is the list of our students\n${error}`);
     });
   }
 });
