@@ -1,7 +1,7 @@
-const express = require('express');
-const fs = require('fs');
+import exp from 'constants';
+import fs from 'fs';
 
-const countStudents = (path) => new Promise((resolve, reject) => {
+const readDatabase = (path) => new Promise((resolve, reject) => {
   try {
     const data = fs.readFileSync(path, 'utf-8');
 
@@ -29,35 +29,12 @@ const countStudents = (path) => new Promise((resolve, reject) => {
       }
     });
 
-    let res = `Number of students: ${students.length}`;
-    Object.entries(fieldCounts).forEach(([field, { count, list }]) => {
-      res += `\nNumber of students in ${field}: ${count}. List: ${list.join(', ')}`;
-    });
-
     // Resolve the promise with the results
-    resolve(res);
+    resolve(fieldCounts);
   } catch (error) {
-    console.log(error);
     // Reject th e promise with an error if the database is not available
     reject(new Error('Cannot load the database'));
   }
 });
-const app = express();
-app.get('/', (_req, res) => {
-  res.end('Hello Holberton School!');
-});
-app.get('/students', (_req, res) => {
-  // Display the list of students
-  countStudents(process.argv[2]).then((students) => {
-    res.end(`This is the list of our students\n${students}`);
-  }).catch((error) => {
-    // Handle errors related to reading the database file
-    res.end(`This is the list of our students\n${error.message}`);
-  });
-});
 
-// Listen on port 1245
-app.listen(1245);
-
-// Export the app variable
-module.exports = app;
+export default readDatabase;

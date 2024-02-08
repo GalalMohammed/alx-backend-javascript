@@ -29,7 +29,6 @@ const countStudents = (path) => new Promise((resolve, reject) => {
       }
     });
 
-    // Log the results to the console
     let res = `Number of students: ${students.length}`;
     Object.entries(fieldCounts).forEach(([field, { count, list }]) => {
       res += `\nNumber of students in ${field}: ${count}. List: ${list.join(', ')}`;
