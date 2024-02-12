@@ -17,7 +17,7 @@ describe('Cart Page', function () {
     request.get('http://localhost:7865/cart/123', (_err, response, body) => {
       // Assertion
       expect(response.statusCode).to.equal(200);
-      expect(body).to.equal('Payment methods for cart :123');
+      expect(body).to.equal('Payment methods for cart 123');
       done();
     });
   });
