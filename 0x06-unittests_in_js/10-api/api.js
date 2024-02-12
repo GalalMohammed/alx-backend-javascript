@@ -1,6 +1,8 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+app.use(bodyParser.json()); // Add JSON body parser middleware
 app.get('/', (_req, res) => {
   res.send('Welcome to the payment system');
 });
