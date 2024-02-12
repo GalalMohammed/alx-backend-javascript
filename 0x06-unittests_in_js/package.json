@@ -1,0 +1,33 @@
+{
+  "name": "0x06-unittests_in_js",
+  "version": "1.0.0",
+  "description": "Unittests in JS Tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GalalMohammed/alx-backend-javascript.git"
+  },
+  "keywords": [
+    "UnitTests",
+    "Back-end",
+    "JavaScript",
+    "ES6",
+    "NodeJs",
+    "ExpressJS",
+    "Mocha"
+  ],
+  "author": "Galal Mohammed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GalalMohammed/alx-backend-javascript/issues"
+  },
+  "homepage": "https://github.com/GalalMohammed/alx-backend-javascript#readme",
+  "devDependencies": {
+    "chai": "^5.1.0",
+    "mocha": "^10.3.0",
+    "sinon": "^17.0.1"
+  }
+}
